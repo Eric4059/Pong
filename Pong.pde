@@ -9,17 +9,15 @@ final int OPTIONS = 5;
 
 
 
-void setup(){
+void setup() {
   size(800, 800);
   mode = INTRO;
-
-
 }
 
 
 
-void draw(){
-if (mode == INTRO) {
+void draw() {
+  if (mode == INTRO) {
     intro();
   } else if (mode == GAME) {
     game();
@@ -33,5 +31,4 @@ if (mode == INTRO) {
 
     println("Error: Mode = " + mode);
   }
-
 }

@@ -1,12 +1,6 @@
-void options(){
-
-
-
+void options() {
 }
 
 
-void optionsClicks(){
-
-
-
+void optionsClicks() {
 }
