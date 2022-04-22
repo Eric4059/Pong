@@ -11,6 +11,12 @@ final int OPTIONS = 5;
 float leftx, lefty, leftd, rightx, righty, rightd; //paddles
 float ballx, bally, balld; //ball
 
+
+//speed
+float vx;
+float vy;
+
+
 //movement
 boolean wkey, skey, upkey, downkey;
 
