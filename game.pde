@@ -28,11 +28,21 @@ void game() {
   circle(ballx, bally, balld);
   
   if(ballx > 0 && ballx < 800 && bally > 0 && bally < 800){
-  ballx = ballx + 1;
-  bally = bally + 1;
+  ballx += vx;
+  bally += vy;
   }
   
-  if(dist())
+  if(bally + 20 < 0 || bally + 20 > 800){
+  vx = vx * -1;
+  vy = vy * -1;
+    
+  }
+  
+  if(dist(leftx, lefty, ballx, bally) <= 120){
+  vx = (ballx - leftx)/100;
+    //vx = -vx;
+    //vy = -vy;
+  }
 }
 
 

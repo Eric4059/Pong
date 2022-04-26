@@ -27,6 +27,9 @@ boolean wkey, skey, upkey, downkey;
 void setup() {
   size(800, 800);
   mode = INTRO;
+  textAlign(CENTER, CENTER);
+  textSize(60);
+  strokeWeight(5);
   
   //initialize paddles
   leftx = 0;
@@ -43,6 +46,7 @@ void setup() {
   bally = 400;
   balld = 40;
   
+  vx = vy = -1;
   
   //intialize movement keys
   wkey = skey = upkey = downkey = false;
