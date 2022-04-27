@@ -1,5 +1,10 @@
 void game() {
   background(#95C3FA);
+  //layout
+  line(400, 0, 400, 800);
+  
+  
+  
   //paddles
   fill(0);
   circle(leftx, lefty, leftd);
@@ -27,21 +32,44 @@ void game() {
   //ball
   circle(ballx, bally, balld);
   
-  if(ballx > 0 && ballx < 800 && bally > 0 && bally < 800){
+  //if(ballx > 0 && ballx < 800 && bally > 0 && bally < 800){
   ballx += vx;
   bally += vy;
-  }
+  //}
   
-  if(bally + 20 < 0 || bally + 20 > 800){
-  vx = vx * -1;
-  vy = vy * -1;
+  if(bally - 20 <= 0 || bally + 20 >= 800 || ballx - 20 <= 0 || ballx + 20 >= 800){
+  vy = -vy;
     
   }
   
   if(dist(leftx, lefty, ballx, bally) <= 120){
-  vx = (ballx - leftx)/100;
-    //vx = -vx;
-    //vy = -vy;
+  vx = (ballx - leftx)/30;
+
+
+  }
+  
+  if(dist(rightx, righty, ballx, bally) <= 120){
+  vx = (ballx - rightx)/30;
+
+
+  }
+  
+  //scoreboard
+  textSize(30);
+  text("Player1 Score: " + leftscore, 200, 100);
+  text("Player2 Score: " + rightscore, 600, 100);
+  
+  if(ballx < 0){
+  rightscore++;
+  ballx = 400;
+  bally = 400;
+}
+
+  if(ballx > 800){
+  leftscore++;
+  ballx = 400;
+  bally = 400;
+  
   }
 }
 

@@ -20,12 +20,16 @@ float vy;
 //movement
 boolean wkey, skey, upkey, downkey;
 
+  
+//Score
+int leftscore, rightscore, timer;
+
 
 
 
 
 void setup() {
-  size(800, 800);
+  size(800, 800, P2D);
   mode = INTRO;
   textAlign(CENTER, CENTER);
   textSize(60);
@@ -46,10 +50,18 @@ void setup() {
   bally = 400;
   balld = 40;
   
-  vx = vy = -1;
+  vx = random(3, 5);
+  vy = random(1, 5);
   
   //intialize movement keys
   wkey = skey = upkey = downkey = false;
+  
+  //initialize score
+  leftscore = 0;
+  rightscore = 0;
+  
+  
+  
 }
 
 
@@ -68,5 +80,36 @@ void draw() {
   } else {
 
     println("Error: Mode = " + mode);
+  }
+}
+
+
+
+
+
+void tactileRect(int x, int y, int w, int l) {
+  if (mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+l) {
+    stroke(255);
+  } else {
+    stroke(0);
+  }
+}
+
+
+
+void tactileCircle(int X, int Y, int r) {
+  if (dist(mouseX, mouseY, X, Y) < r) {
+    stroke(255);
+  } else {
+    stroke(0);
+  }
+}
+
+
+void tactileCircle(float posX, float posY, float r) {
+  if (dist(posX, posY, mouseX, mouseY) < r) {
+    stroke(255);
+  } else {
+    stroke(0);
   }
 }
