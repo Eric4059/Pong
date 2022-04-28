@@ -24,7 +24,7 @@ boolean wkey, skey, upkey, downkey;
 //Score
 int leftscore, rightscore, timer;
 
-
+String chosenWinner;
 
 
 
@@ -33,6 +33,7 @@ void setup() {
   mode = INTRO;
   textAlign(CENTER, CENTER);
   textSize(60);
+  stroke(0);
   strokeWeight(5);
   
   //initialize paddles

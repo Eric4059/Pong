@@ -8,14 +8,16 @@ void game() {
   //paddles
   fill(0);
   circle(leftx, lefty, leftd);
+  fill(255);
+  stroke(255);
   circle(rightx, righty, rightd);
 
   //movement keys
-  if (wkey == true) lefty = lefty - 5;
-  if (skey == true) lefty = lefty + 5;
+  if (wkey == true) lefty = lefty - 7;
+  if (skey == true) lefty = lefty + 7;
 
-  if (upkey == true) righty = righty - 5;
-  if (downkey == true) righty = righty + 5;
+  if (upkey == true) righty = righty - 7;
+  if (downkey == true) righty = righty + 7;
 
 
   if (lefty <= 100) {
@@ -30,6 +32,8 @@ void game() {
   }
 
   //ball
+  fill(#9294C4);
+  stroke(0);
   circle(ballx, bally, balld);
   
   //if(ballx > 0 && ballx < 800 && bally > 0 && bally < 800){
@@ -43,34 +47,46 @@ void game() {
   }
   
   if(dist(leftx, lefty, ballx, bally) <= 120){
-  vx = (ballx - leftx)/30;
-
-
+  vx = (ballx - leftx)/20;
+  vy = (bally - lefty)/20;
   }
   
   if(dist(rightx, righty, ballx, bally) <= 120){
-  vx = (ballx - rightx)/30;
-
-
+  vx = (ballx - rightx)/20;
+  vy = (bally - lefty)/20;
   }
   
   //scoreboard
-  textSize(30);
-  text("Player1 Score: " + leftscore, 200, 100);
-  text("Player2 Score: " + rightscore, 600, 100);
+  fill(0);
+  textSize(35);
+  text("Player 1 Score: " + leftscore, 200, 100);
+  text("Player 2 Score: " + rightscore, 600, 100);
   
   if(ballx < 0){
   rightscore++;
   ballx = 400;
   bally = 400;
+  vx = -1;
+  vy = 0;
 }
 
   if(ballx > 800){
   leftscore++;
   ballx = 400;
   bally = 400;
+  vx = 1;
+  vy = 0;
   
   }
+  
+  if(leftscore == 3){
+  mode = GAMEOVER;
+  chosenWinner = "Player 1 Wins!!";
+  } else if(rightscore == 3){
+  mode = GAMEOVER;
+  chosenWinner = "Player 2 Wins";
+  } 
+  
 }
 
 
