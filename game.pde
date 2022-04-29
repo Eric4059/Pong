@@ -6,9 +6,9 @@ void game() {
   
   
   //paddles
-  fill(0);
+  fill(#305789);
   circle(leftx, lefty, leftd);
-  fill(255);
+  fill(#FA1735);
   stroke(255);
   circle(rightx, righty, rightd);
 
@@ -47,13 +47,13 @@ void game() {
   }
   
   if(dist(leftx, lefty, ballx, bally) <= 120){
-  vx = (ballx - leftx)/20;
-  vy = (bally - lefty)/20;
+  vx = (ballx - leftx)/22;
+  vy = (bally - lefty)/22;
   }
   
   if(dist(rightx, righty, ballx, bally) <= 120){
-  vx = (ballx - rightx)/20;
-  vy = (bally - lefty)/20;
+  vx = (ballx - rightx)/22;
+  vy = (bally - lefty)/22;
   }
   
   //scoreboard

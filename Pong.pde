@@ -1,4 +1,16 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 //Pong!!
+
+
+
+
+
 
 int mode;
 final int INTRO = 1;
@@ -6,6 +18,7 @@ final int GAME = 2;
 final int GAMEOVER = 3;
 final int PAUSE = 4;
 final int OPTIONS = 5;
+final int GAME2 = 6;
 
 //entity variables
 float leftx, lefty, leftd, rightx, righty, rightd; //paddles
@@ -16,11 +29,14 @@ float ballx, bally, balld; //ball
 float vx;
 float vy;
 
+boolean AI; 
+
+
 
 //movement
 boolean wkey, skey, upkey, downkey;
 
-  
+
 //Score
 int leftscore, rightscore, timer;
 
@@ -35,34 +51,34 @@ void setup() {
   textSize(60);
   stroke(0);
   strokeWeight(5);
-  
+
   //initialize paddles
   leftx = 0;
   lefty = 400;
   leftd = 200;
-  
+
   rightx = 800;
   righty = 400;
   rightd = 200;
-  
-  
+
+
   //initialize balls
   ballx = 400;
   bally = 400;
   balld = 40;
-  
+
   vx = random(3, 5);
   vy = random(1, 5);
-  
+
   //intialize movement keys
   wkey = skey = upkey = downkey = false;
-  
+
   //initialize score
   leftscore = 0;
   rightscore = 0;
-  
-  
-  
+
+  //initialize chosenWinner
+  chosenWinner = "Player 1 Wins";
 }
 
 
@@ -78,6 +94,8 @@ void draw() {
     gameover();
   } else if (mode == OPTIONS) {
     options();
+  } else if (mode == GAME2) {
+    game2();
   } else {
 
     println("Error: Mode = " + mode);

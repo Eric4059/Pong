@@ -10,5 +10,8 @@ void mouseReleased () {
     gameoverClicks();
   } else if (mode == OPTIONS) {
     optionsClicks();
+  } else if(mode == GAME2){
+    game2Clicks();
+  
   }
 }
