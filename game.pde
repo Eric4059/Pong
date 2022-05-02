@@ -9,15 +9,21 @@ void game() {
   fill(#305789);
   circle(leftx, lefty, leftd);
   fill(#FA1735);
-  stroke(255);
   circle(rightx, righty, rightd);
 
   //movement keys
   if (wkey == true) lefty = lefty - 7;
   if (skey == true) lefty = lefty + 7;
 
+  if(AI == false){
   if (upkey == true) righty = righty - 7;
   if (downkey == true) righty = righty + 7;
+  } else {
+    if(ballx >= 400){
+      if(ballx > righty) righty = righty - 7;
+      if(ballx < righty) righty = righty + 7;
+    }
+  }
 
 
   if (lefty <= 100) {
@@ -41,19 +47,19 @@ void game() {
   bally += vy;
   //}
   
-  if(bally - 20 <= 0 || bally + 20 >= 800 || ballx - 20 <= 0 || ballx + 20 >= 800){
+  if(bally - 50 <= 0 || bally + 50 >= 800 || ballx - 50 <= 0 || ballx + 50 >= 800){
   vy = -vy;
     
   }
   
-  if(dist(leftx, lefty, ballx, bally) <= 120){
-  vx = (ballx - leftx)/22;
-  vy = (bally - lefty)/22;
+  if(dist(leftx, lefty, ballx, bally) <= 150){
+  vx = (ballx - leftx)/10;
+  vy = (bally - lefty)/10;
   }
   
-  if(dist(rightx, righty, ballx, bally) <= 120){
-  vx = (ballx - rightx)/22;
-  vy = (bally - lefty)/22;
+  if(dist(rightx, righty, ballx, bally) <= 150){
+  vx = (ballx - rightx)/10;
+  vy = (bally - righty)/10;
   }
   
   //scoreboard
@@ -66,7 +72,7 @@ void game() {
   rightscore++;
   ballx = 400;
   bally = 400;
-  vx = -1;
+  vx = -2;
   vy = 0;
 }
 
@@ -74,7 +80,7 @@ void game() {
   leftscore++;
   ballx = 400;
   bally = 400;
-  vx = 1;
+  vx = 2;
   vy = 0;
   
   }

@@ -24,10 +24,12 @@ void intro() {
 void introClicks() {
   if(mouseX > 100 && mouseX < 300 && mouseY > 500 && mouseY < 580){
   mode = GAME;
+  AI = true;
   }
   
   if(mouseX > 500 && mouseX < 700 && mouseY > 500 && mouseY < 580){
   mode = GAME;
+  AI = false;
   }
   
   

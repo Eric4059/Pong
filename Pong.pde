@@ -65,7 +65,7 @@ void setup() {
   //initialize balls
   ballx = 400;
   bally = 400;
-  balld = 40;
+  balld = 100;
 
   vx = random(3, 5);
   vy = random(1, 5);
