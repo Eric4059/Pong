@@ -8,7 +8,7 @@ import ddf.minim.ugens.*;
 //Pong!!
 
 
-
+PImage start;
 
 
 
@@ -51,6 +51,7 @@ void setup() {
   textSize(60);
   stroke(0);
   strokeWeight(5);
+  imageMode(CENTER);
 
   //initialize paddles
   leftx = 0;
@@ -79,6 +80,14 @@ void setup() {
 
   //initialize chosenWinner
   chosenWinner = "Player 1 Wins";
+  
+  //pause
+  start = loadImage("start.png");
+  
+  
+  
+  
+  
 }
 
 
