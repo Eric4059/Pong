@@ -9,6 +9,7 @@ import ddf.minim.ugens.*;
 
 
 PImage start;
+PFont title;
 
 
 

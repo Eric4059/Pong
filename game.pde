@@ -20,8 +20,10 @@ void game() {
     if (downkey == true) righty = righty + 7;
   } else {
     if (ballx >= 400) {
-      if (ballx > righty) righty = righty - 7;
-      if (ballx < righty) righty = righty + 7;
+      if (bally > righty) {
+        righty = righty + 7;
+      }
+      if (bally  < righty) righty = righty - 7;
     }
   }
 
@@ -42,13 +44,18 @@ void game() {
   stroke(0);
   circle(ballx, bally, balld);
 
-  //if(ballx > 0 && ballx < 800 && bally > 0 && bally < 800){
   ballx += vx;
   bally += vy;
   //}
 
-  if (bally - 50 <= 0 || bally + 50 >= 800 || ballx - 50 <= 0 || ballx + 50 >= 800) {
+  if (bally - 50 <= 0 || bally + 50 >= 800) {
     vy = -vy;
+  }
+  if (bally - 50 <= -5) {
+    bally = 50;
+  }
+  if (bally + 50 >= 800) {
+    bally = 750;
   }
 
   if (dist(leftx, lefty, ballx, bally) <= 150) {
@@ -88,7 +95,7 @@ void game() {
     chosenWinner = "Player 1 Wins!!";
   } else if (rightscore == 3) {
     mode = GAMEOVER;
-    chosenWinner = "Player 2 Wins";
+    chosenWinner = "Player 2 Wins!!";
   } 
 
 
