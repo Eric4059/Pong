@@ -12,7 +12,6 @@ PImage start;
 PFont title;
 
 
-
 int mode;
 final int INTRO = 1;
 final int GAME = 2;
@@ -84,6 +83,9 @@ void setup() {
   
   //pause
   start = loadImage("start.png");
+  
+  
+  title = createFont("pingpong.otf", 75);
   
   
   

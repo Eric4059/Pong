@@ -1,6 +1,6 @@
 void gameover() {
 
-  textSize(80);
+  textSize(100);
   text(chosenWinner, 400, 200);
   
   
@@ -10,15 +10,15 @@ void gameover() {
   fill(255);
   rect(100, 500, 200, 80);
   fill(0);
-  textSize(45);
-  text("Restart", 200, 530);
+  textSize(60);
+  text("Restart", 200, 540);
   
   tactileRect(500, 500, 200, 80);
   fill(255);
   rect(500, 500, 200, 80);
   fill(0);
-  textSize(45);
-  text("Home", 600, 530);
+  textSize(60);
+  text("Home", 600, 540);
   
 }
 

@@ -12,18 +12,18 @@ void game() {
   circle(rightx, righty, rightd);
 
   //movement keys
-  if (wkey == true) lefty = lefty - 7;
-  if (skey == true) lefty = lefty + 7;
+  if (wkey == true) lefty = lefty - 8;
+  if (skey == true) lefty = lefty + 8;
 
   if (AI == false) {
-    if (upkey == true) righty = righty - 7;
-    if (downkey == true) righty = righty + 7;
+    if (upkey == true) righty = righty - 8;
+    if (downkey == true) righty = righty + 8;
   } else {
     if (ballx >= 400) {
       if (bally > righty) {
-        righty = righty + 7;
+        righty = righty + 10;
       }
-      if (bally  < righty) righty = righty - 7;
+      if (bally  < righty) righty = righty - 10;
     }
   }
 
@@ -105,6 +105,9 @@ void game() {
   square(375, 80, 50);
   image(start, 400, 105, 30, 30);
   stroke(0);
+  
+  
+ 
 }
 
 
